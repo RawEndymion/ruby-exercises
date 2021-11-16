@@ -23,8 +23,7 @@ end
 # return value: games, alphabetically sorted and duplicates removed
 # hint: chain Array#sort and Array#uniq together
 def alphabetical_list(games)
-  games.sort!.uniq!
-  games
+  games.sort.uniq
 end
 
 # method name: #lucky_number
@@ -40,13 +39,11 @@ end
 # explicit return value: 'Input Error' if character's length does not equal 1
 # hint: use String#ord
 def ascii_code(character)
-  length = character.length
-  cache = {1 => character}
-  cache.default = "Input Error"
-  result = cache[length]
-  output = {"Input Error" => "Input Error"}
-  output.default = result.ord
-  output[result]
+  if character.length == 1
+    return character.ord
+  else
+    'Input Error'
+  end
 end
 
 # method name: #pet_pun
